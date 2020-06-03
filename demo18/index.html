@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>18、animation @keyframe 实现复杂自定义动画</title>
+  <style>
+
+    html,body {
+      background-color: #ccc;
+    }
+
+    * {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .main {
+      /* width: 1200px;
+      margin: 30px auto;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;   */
+    }
+
+    .animation1 {
+      position: fixed;
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      animation-name: mymove;
+      animation-duration: 2s;
+      animation-timing-function: ease-in-out;
+      animation-delay: .1s;
+      animation-iteration-count: 2;
+      animation-direction: alternate;
+
+      /* animation:mymove 4s  ease-in-out .1s infinite; */
+
+    }
+
+    @keyframes mymove {
+      0% {top:0% ;left: 20%;}
+      25% {top:0% ;left: 80%;}
+      50% {top:80% ;left: 80%;}
+      75% {top:80% ;left: 20%;}
+      100% {top:0% ;left: 20%;}
+     
+    }
+
+    
+
+    
+  </style>
+</head>
+<body>
+
+  <div class="main">
+    <div class="animation1"></div>
+  </div>
+  
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>22、文案超过...</title>
+  <style>
+    html,
+    body {
+      background-color: #ccc;
+    }
+
+    * {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .main {
+      width: 1200px;
+      height: 100px;
+      margin: 100px auto;
+    }
+
+    .content1 {
+      width: 200px;
+      height: 100px;
+      border: 1px solid red;
+      margin-bottom: 20px;
+
+      /* //超出的文本隐藏 */
+      overflow: hidden;
+      /* //溢出用省略号显示 */
+      text-overflow: ellipsis;
+      /* //溢出不换行 */
+      white-space: nowrap;
+
+    }
+
+    .content2 {
+      width: 200px;
+      height: 66px;
+      border: 1px solid red;
+
+      overflow: hidden;
+      /* //将元素设为盒子伸缩模型显示 */
+      display: -webkit-box;
+      /* //伸缩方向设为垂直方向 */
+      -webkit-box-orient: vertical;
+      /* //超出3行隐藏，并显示省略号 */
+      -webkit-line-clamp: 3;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="main">
+
+    <div class="content1">
+      所有主流浏览器都支持 text-overflow 属性。
+      定义和用法 text-overflow 属性规定当文本溢
+      出包含元素时发生的事情。默认值: clip 继承性:
+      no 版本: CSS3 JavaScript
+    </div>
+    <div class="content2">
+      所有主流浏览器都支持 text-overflow 属性。
+      定义和用法 text-overflow 属性规定当文本溢
+      出包含元素时发生的事情。默认值: clip 继承性:
+      no 版本: CSS3 JavaScript
+    </div>
+
+  </div>
+
+</body>
+
+</html>

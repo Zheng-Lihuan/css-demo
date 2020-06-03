@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10、用transform-origin 和transform 画心形, 蛋形</title>
+  <style>
+
+    * {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .main {
+      width: 1200px;
+      margin: 30px auto;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      padding-top: 100px;
+    }
+
+    .wrap {
+      width: 100px;
+      height: 100px;
+      border: 1px solid pink;
+    }
+
+    .demo1 {
+      position: relative;
+      width: 50px;
+      height: 90px;
+      border-radius: 25px 25px 0 0;
+      background-color: red;
+      transform: rotate(-45deg);
+      transform-origin: left bottom;
+    }
+
+    .demo1::before {
+      position: absolute;
+      left: -50px;
+      top: 0px;
+      content:'';
+      width: 50px;
+      height: 90px;
+      border-radius: 50px 40px 0 0;
+      background-color: red;
+      transform-origin: right bottom;
+      transform: rotate(90deg);
+    }
+
+
+    .demo2 {
+      position: relative;
+      width: 100px;
+      height: 140px;
+      background-color: red;
+      border-radius: 100% 0 100% 0 ;
+    }
+
+    .demo3{
+      position: relative;
+      width: 200px;
+      height: 100px;
+      background-color: red;
+      border-top-left-radius: 30% 100%;
+      border-bottom-right-radius: 30% 100%;
+    }
+
+    .demo4 {
+      width: 200px;
+      height: 100px;
+      background-color: red;
+      border-top-left-radius: 30% 100%;
+      border-top-right-radius:30% 100%;
+    }
+
+
+    .demo5 {
+      width: 200px;
+      height: 100px;
+      background-color: red;
+      border-top-left-radius: 20% 100%;
+      border-bottom-left-radius: 20% 100%;
+    }
+
+    .demo6 {
+      width: 200px;
+      height: 100px;
+      background-color: red;
+      border-top-left-radius: 200px 100px;
+    }
+
+    .demo6 {
+      width: 100px;
+      height: 140px;
+      background-color: red;
+      border-top-left-radius: 50px 100px;
+      border-top-right-radius: 50px 100px;
+      border-bottom-right-radius: 50px 50px;
+      border-bottom-left-radius: 50px 50px;
+    }
+
+
+    
+  </style>
+</head>
+<body>
+
+  <div class="main">
+    <!-- 心形 -->
+    <div class="demo1"></div>
+
+    <!-- 叶子 -->
+    <div class="demo2"></div>
+
+    <!-- 倾斜胶囊 -->
+    <div class="demo3"></div>
+
+    <!-- 圆润椭圆 -->
+    <div class="demo4"></div>
+
+    <!-- 类似胶囊状 -->
+    <div class="demo5"></div>
+
+    <!-- 类似三角形-->
+    <div class="demo6"></div>
+
+     <!-- 蛋形-->
+     <div class="demo7"></div>
+  </div>
+  
+</body>
+</html>

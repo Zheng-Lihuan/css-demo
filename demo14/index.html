@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>14、径向渐变</title>
+  <style>
+
+    html,body {
+      background-color: #ccc;
+    }
+
+    * {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .main {
+      width: 1200px;
+      margin: 30px auto;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;  
+    }
+
+    .liner {
+      width: 100px;
+      height: 100px;
+      border: 1px solid #fff;
+      border-radius: 50%;
+    }
+
+    .circle1 {
+      background-image:radial-gradient(circle at center, orange,green );
+    }
+
+    .ellipse1 {
+      background-image:radial-gradient(ellipse at center, orange,green);
+    }
+
+    .circle2 {
+      background-image:radial-gradient(circle at right , orange,green);
+    }
+
+    .ellipse2 {
+      background-image:radial-gradient(ellipse at right,orange,green);
+    }
+
+    .circle3 {
+      background-image:radial-gradient(circle at top left , orange,green);
+    }
+
+    .ellipse3 {
+      background-image:radial-gradient(ellipse at top left,orange,green);
+    }
+
+    .circle4 {
+      background-image:radial-gradient(20px circle at center , orange,green);
+    }
+
+    .ellipse4 {
+      background-image:radial-gradient(20px 30px ellipse at center,orange,green);
+    }
+
+    .circle5 {
+      background-image:radial-gradient(20px circle at center , orange,green ,red);
+    }
+
+    .ellipse5 {
+      background-image:radial-gradient(50px  30px ellipse at center,orange,green,red);
+    }
+
+    
+
+    
+
+    
+  </style>
+</head>
+<body>
+
+  <div class="main">
+    <div class="liner circle1"></div>
+    <div class="liner ellipse1"></div>
+
+    <div class="liner circle2"></div>
+    <div class="liner ellipse2"></div>
+
+    <div class="liner circle3"></div>
+    <div class="liner ellipse3"></div>
+
+    <div class="liner circle4"></div>
+    <div class="liner ellipse4"></div>
+
+    <div class="liner circle5"></div>
+    <div class="liner ellipse5"></div>
+  </div>
+  
+</body>
+</html>

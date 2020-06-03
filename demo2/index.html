@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2、伪类选择器</title>
+  <style>
+
+    .main {
+      width: 500px;
+      margin: 30px auto;
+    }
+
+    a:link {color: #FF0000}		/* 未访问的链接 */
+    a:visited {color: #00FF00}	/* 已访问的链接 */
+    a:hover {color: #FF00FF}	/* 鼠标移动到链接上 */
+    a:active {color: #0000FF}	/* 选定的链接 */
+
+    input:enabled {
+      background-color: #FF0000;
+    }
+
+    input:disabled {
+      background-color: #0000FF;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="main">
+    <a href="baidu.com">link</a>
+    <input type="text">
+    <input type="text" disabled>
+  </div>
+  
+</body>
+</html>

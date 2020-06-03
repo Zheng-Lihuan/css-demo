@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6、使用border画三角形 对话框</title>
+  <style>
+
+    * {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .main ,.case-wrap{
+      width: 1200px;
+      margin: 30px auto;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    .demo {
+      width: 0;
+      height: 0;
+      border-top: 100px solid red;
+      border-right: 100px solid blue;
+      border-bottom: 100px solid yellowgreen;
+      border-left: 100px solid pink;
+    }
+
+    .top {
+      border-top: 100px solid red;
+      border-right: 100px solid transparent;
+      border-left: 100px solid transparent;
+      border-bottom: 0 solid yellowgreen;
+    }
+
+    .right {
+      border-top: 100px solid transparent;
+      border-right: 100px solid blue;
+      border-bottom: 100px solid transparent;
+      border-left: 0 solid pink;
+    }
+
+    .bottom {
+      border-top: 0 solid red;
+      border-right: 100px solid transparent;
+      border-bottom: 100px solid yellowgreen;
+      border-left: 100px solid transparent;
+    }
+
+    .left {
+      border-top: 100px solid transparent;
+      border-right: 0 solid transparent;
+      border-bottom: 100px solid transparent;
+      border-left: 100px solid pink;
+    }
+
+    .test1 {
+      border-top: 100px solid red;
+      border-right: 100px solid transparent;
+      border-bottom: 100px solid transparent;
+      border-left: 100px solid pink;
+    }
+
+    .test2 {
+      border-top: 100px solid red;
+      border-right: 0 solid transparent;
+      border-bottom: 100px solid transparent;
+      border-left: 100px solid pink;
+    }
+
+    .test3{
+      width: 50px;
+      height: 50px;
+      border-top: 50px solid red;
+      border-right: 50px solid blue;
+      border-bottom: 50px solid yellowgreen;
+      border-left: 50px solid pink;
+    }
+
+    .test4{
+      width: 50px;
+      height: 50px;
+      border-top: 50px solid red;
+      border-right: 50px solid transparent;
+      border-bottom:0 solid yellowgreen;
+      border-left: 50px solid transparent;
+    }
+
+    /* 对话框 */
+    .dialog {
+      position: relative;
+      width: 300px;
+      height: 50px;
+      border-radius: 6px;
+      background-color: yellowgreen;
+      font-size: 16px;
+      color: #fff;
+      line-height: 50px;
+      padding: 0 10px;
+      box-sizing: border-box;
+    }
+
+    .dialog::before {
+      position: absolute;
+      left: -10px;
+      top: 50%;
+      transform: translateY(-50%);
+      content:'';
+      width: 0;
+      height: 0;
+      border-right: 10px solid yellowgreen;
+      border-left: 0;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+    }
+
+
+
+    
+
+    
+
+
+    
+  </style>
+</head>
+<body>
+
+  <div class="main">
+    <div class="demo"></div>
+    <div class="demo top"></div>
+    <div class="demo right"></div>
+    <div class="demo bottom"></div>
+    <div class="demo left"></div>
+
+    <!-- 半圆 -->
+    <div class="test1"></div>
+    <div class="test2"></div>
+    <div class="test3"></div>
+    <div class="test4"></div>
+    
+  </div>
+
+  <div class="case-wrap">
+    <div class="dialog">实现对话框</div>
+  </div>
+  
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>7、使用transform画平行四边形</title>
+  <style>
+
+    * {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .main ,.case-wrap{
+      width: 1200px;
+      margin: 30px auto;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    .demo1 {
+      width: 100px;
+      height: 100px;
+      background-color: yellowgreen;
+      transform: rotate(-45deg);
+    }
+
+    .demo2 {
+      width: 100px;
+      height: 100px;
+      background-color: yellowgreen;
+      transform :skew(20deg);
+    }
+
+    .demo3 {
+      width: 100px;
+      height: 100px;
+      background-color: yellowgreen;
+      transform :skew(0,30deg);
+    }
+
+    
+
+
+    
+
+    
+
+
+    
+  </style>
+</head>
+<body>
+
+  <div class="main">
+    <div class="demo1"></div>
+    <div class="demo2"></div>
+    <div class="demo3"></div>
+
+    <!-- 半圆 -->
+    <div class="test1"></div>
+    <div class="test2"></div>
+    <div class="test3"></div>
+    <div class="test4"></div>
+    
+  </div>
+  
+</body>
+</html>

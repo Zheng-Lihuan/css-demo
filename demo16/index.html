@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>16、阴影 box-shadow</title>
+  <style>
+
+    html,body {
+      background-color: #ccc;
+    }
+
+    * {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .main {
+      width: 1200px;
+      margin: 30px auto;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;  
+    }
+
+    .shadow {
+      width: 200px;
+      height: 200px;
+      /* border: 1px solid red; */
+      box-shadow: 10px 10px 20px rgba(0,0,0,.6);
+      /* x 坐标 y 坐标 模糊距离 阴影大小 颜色 内阴影 外阴影 */
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    
+  </style>
+</head>
+<body>
+
+  <div class="main">
+    <div class="shadow">
+      <img src="./cat.jpg" alt="">
+    </div>
+    <!-- <div class="liner radial"></div> -->
+  </div>
+  
+</body>
+</html>

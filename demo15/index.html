@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>15、线性渐变 径向渐变 的重复渐变案例</title>
+  <style>
+
+    html,body {
+      background-color: #ccc;
+    }
+
+    * {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .main {
+      width: 1200px;
+      margin: 30px auto;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;  
+    }
+
+    .liner {
+      width: 200px;
+      height: 200px;
+      border: 1px solid #fff;
+      /* border-radius: 50%; */
+    }
+
+    .linear {
+      background-image:repeating-linear-gradient( orange 0px ,green 20px,red 40px);
+    }
+
+    .radial {
+      border-radius: 50%;
+      background-image:repeating-radial-gradient( orange 0px,green 30px,red 40px);
+    }
+
+    
+  </style>
+</head>
+<body>
+
+  <div class="main">
+    <div class="liner linear"></div>
+    <div class="liner radial"></div>
+  </div>
+  
+</body>
+</html>

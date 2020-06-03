@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3、结构伪类选择器</title>
+  <style>
+
+    * {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    
+
+    .main {
+      width: 1200px;
+      margin: 30px auto;
+    }
+
+    li:first-child {
+      background-color: red;
+    }
+
+    li:last-child {
+      background-color: pink;
+    }
+
+    li:nth-child(2n){
+      background-color: orange;
+    }
+
+    li:nth-child(2n+1){
+      background-color: yellowgreen;
+    }
+
+    
+  </style>
+</head>
+<body>
+
+  <div class="main">
+    <ul>
+      <li>1、我是第1行</li>
+      <li>2、我是第2行</li>
+      <li>3、我是第3行</li>
+      <li>4、我是第4行</li>
+    </ul>
+  </div>
+  
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4、伪元素 实现首字下沉</title>
+  <style>
+
+    * {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    
+
+    .main {
+      width: 1200px;
+      margin: 30px auto;
+    }
+
+    .demo {
+      width: 300px;
+      padding: 20px;
+      border: 1px solid #666;
+    }
+
+    /* 首字符 */
+    .demo::first-letter {
+      font-size: 30px;
+      color: red;
+      float:left;
+    }
+
+    /* 首行 */
+    .demo::first-line {
+      color: #f0f;
+    }
+
+    .demo1 {
+      width: 300px;
+      padding: 20px;
+      border:1px solid #666;
+      margin-top: 30px;
+    }
+
+
+    
+  </style>
+</head>
+<body>
+
+  <div class="main">
+    <div class="demo">
+      在支持 CSS 的浏览器中，链接的不同状态都可以不同的方式显示，这些状态包括：活动状态，已被访问状态，未被访问状态，和鼠标悬停状态。
+    </div>
+  </div>
+  
+</body>
+</html>

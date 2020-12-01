@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      background-color: rgb(19, 76, 109);
+    }
+
+    .big {
+      perspective: 1200px;
+      position: relative;
+      width: 338px;
+      height: 538px;
+      margin: 100px auto;
+    }
+
+    .box {
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 338px;
+      height: 538px;
+      transform-style: preserve-3d;
+      transform-origin: left;
+    }
+
+    @keyframes move {
+      0% {
+        transform: rotateY(0deg);
+      }
+
+      50% {
+        transform: rotateY(-120deg);
+      }
+
+      100% {
+        transform: rotateY(0deg);
+      }
+    }
+
+    .box:hover {
+      animation-play-state: paused;
+    }
+
+    .door {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 300px;
+      height: 500px;
+      background-color: rgb(4, 55, 85);
+      border: 2px solid #000;
+      transform: translateZ(15px);
+    }
+
+    .door-back {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 300px;
+      height: 500px;
+      background-color: rgb(4, 55, 85);
+      border: 2px solid #000;
+      transform: translateZ(-15px);
+    }
+
+    .door-t {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 300px;
+      height: 30px;
+      background-color: rgb(4, 55, 85);
+      border: 2px solid #000;
+      transform: translateY(15px) rotateX(90deg);
+    }
+
+    .door-r {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 30px;
+      height: 500px;
+      background-color: rgb(4, 55, 85);
+      border: 2px solid #000;
+      transform: translateX(-15px) rotateY(90deg);
+    }
+
+    .mk {
+      position: absolute;
+      top: 0;
+      left: 0;
+      animation: move 2s linear infinite;
+    }
+
+    .men .door {
+      background-color: #fff;
+    }
+
+    span {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      display: inline-block;
+      width: 60px;
+      height: 40px;
+      border-radius: 10px;
+      line-height: 40px;
+      font-size: 20px;
+      font-weight: 700;
+      background-color: rgb(218, 157, 27);
+      border: 2px solid #000;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="big">
+    <div class="box men">
+      <div class="door"></div>
+      <div class="door-t"></div>
+      <div class="door-r"></div>
+      <div class="door-back"></div>
+    </div>
+    <div class="box mk">
+      <div class="door"><span>open</span></div>
+      <div class="door-t"></div>
+      <div class="door-r"></div>
+      <div class="door-back"></div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,50 +1,278 @@
 <!DOCTYPE html>
 <html lang="en">
-
+ 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>23、transform 实现3D动画案例</title>
-  <style>
-    html,
-    body {
-      background-color: #ccc;
-    }
-
-    * {
-      padding: 0;
-      margin: 0;
-      list-style: none;
-    }
-
-    .main {
-      width: 1200px;
-      height: 100px;
-      margin: 100px auto;
-    }
-
-    .box1 {
-      width: 200px;
-      height: 100px;
-      background-color: pink;
-    }
-
-    .box2 {
-      width: 200px;
-      height: 66px;
-      background-color: pink;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        body {
+            background: linear-gradient(45deg, #222, #333, #444);
+        }
+        
+        .box {
+            margin: 0 auto;
+            width: 200px;
+            padding-top: 200px;
+            box-sizing: border-box;
+        }
+        
+        .cube {
+            /* 设置正方体的转换类型是3d转换模式*/
+            transform-style: preserve-3d;
+            /* 为了方便我们观察每一个面，将正方体旋转一定的角度 */
+            transform: rotateX(-35deg) rotateY(45deg);
+        }
+        /* 每个面通用的基础样式 */
+        
+        .site {
+            background: rgba(0, 188, 166, .6);
+            color: #FFFFFF;
+            width: 200px;
+            height: 200px;
+            border: 1px solid #333333;
+            text-align: center;
+            line-height: 200px;
+            position: absolute;
+            font-size: 64px;
+            font-weight: bold;
+            transition: transform 1.5s;
+            cursor: pointer;
+            box-shadow: 0 0 5px #FFFFFF;
+        }
+        /* 以下为默认的前后左右上下6个面的厨师状态，设置一下延时，方便我们观看正方体构建的过程 */
+        
+        .front {
+            transform: scale(0) translateZ(300px);
+            transition-delay: 100ms;
+        }
+        
+        .back {
+            transform: scale(0) translateZ(-300px);
+            transition-delay: 1600ms;
+        }
+        
+        .left {
+            transform: scale(0) rotateY(-90deg) translateZ(300px);
+            transition-delay: 3100ms;
+        }
+        
+        .right {
+            transform: scale(0) rotateY(90deg) translateZ(-300px);
+            transition-delay: 4600ms;
+        }
+        
+        .top {
+            transform: scale(0) rotateX(90deg) translateZ(300px);
+            transition-delay: 6100ms;
+        }
+        
+        .bottom {
+            transform: scale(0) rotateX(-90deg) translateZ(-300px);
+            transition-delay: 7600ms;
+        }
+        /* 添加active类名后，开始构建正方体 */
+        
+        .active.front {
+            transform: scale(1) translateZ(100px);
+        }
+        
+        .active.back {
+            transform: scale(1) translateZ(-100px) rotateY(180deg);
+        }
+        
+        .active.left {
+            transform: scale(1) rotateY(-90deg) translateZ(100px);
+        }
+        
+        .active.right {
+            transform: scale(1) rotateY(90deg) translateZ(100px);
+        }
+        
+        .active.top {
+            transform: scale(1) rotateX(90deg) translateZ(100px);
+        }
+        
+        .active.bottom {
+            transform: scale(1) rotateX(-90deg) translateZ(100px);
+        }
+        
+        .site.active:hover,
+        .finish {
+            transition-delay: 0ms!important;
+        }
+        
+        .active.site:hover.front {
+            transform: scale(1.2) translateZ(100px);
+        }
+        
+        .active.site:hover.back {
+            transform: scale(1.2) translateZ(-100px);
+        }
+        
+        .active.site:hover.left {
+            transform: scale(1.2) rotateY(-90deg) translateZ(100px);
+        }
+        
+        .active.site:hover.right {
+            transform: scale(1.2) rotateY(-90deg) translateZ(-100px);
+        }
+        
+        .active.site:hover.top {
+            transform: scale(1.2) rotateX(90deg) translateZ(100px);
+        }
+        
+        .active.site:hover.bottom {
+            transform: scale(1.2) rotateX(90deg) translateZ(-100px);
+        }
+        
+        .control {
+            position: fixed;
+            bottom: 30px;
+            left: 0;
+            text-align: center;
+            width: 100%;
+        }
+        
+        button {
+            width: 100px;
+            height: 30px;
+            background: linear-gradient(45deg, rgb(11, 108, 187), rgb(3, 61, 109));
+            border-radius: 5px;
+            border: 1px solid #FFFFFF;
+            outline: none;
+            color: #FFFFFF;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        
+        button:disabled {
+            opacity: .6;
+            cursor: not-allowed;
+        }
+        
+        button:hover {
+            opacity: .8;
+        }
+        
+        button:hover:disabled {
+            opacity: .6;
+        }
+    </style>
 </head>
-
+ 
 <body>
-
-  <div class="main">
-    <div class="box1"></div>
-    <div class="box2"></div>
-    <div class="box3"></div>
-  </div>
-
+    <div class="box">
+        <div class="cube" id="cube">
+            <div class="site front">1</div>
+            <div class="site back">2</div>
+            <div class="site left">3</div>
+            <div class="site right">4</div>
+            <div class="site top">5</div>
+            <div class="site bottom">6</div>
+        </div>
+        <div class="control">
+            <button id="left" disabled>←</button>
+            <button id="up" disabled>↑</button>
+            <button id="down" disabled>↓</button>
+            <button id="right" disabled>→</button>
+            <button id="reset" disabled>重置</button>
+        </div>
+    </div>
+ 
+    <script>
+        var sites = document.querySelectorAll('.site');
+ 
+ 
+        var left = document.getElementById('left');
+        var right = document.getElementById('right');
+        var up = document.getElementById('up');
+        var down = document.getElementById('down');
+        var reset = document.getElementById('reset');
+        var cube = document.getElementById('cube');
+ 
+ 
+        var degX = -35,
+            degY = 45;
+ 
+        function start() {
+            for (var i = 0; i < sites.length; i++) {
+                var site = sites[i];
+                site.classList.add('active');
+            }
+        }
+ 
+        function finish() {
+            for (var i = 0; i < sites.length; i++) {
+                var site = sites[i];
+                site.classList.add('finish');
+            }
+            left.removeAttribute('disabled');
+            right.removeAttribute('disabled');
+            up.removeAttribute('disabled');
+            down.removeAttribute('disabled');
+            reset.removeAttribute('disabled');
+ 
+        }
+ 
+        function doReset(cb) {
+            deg = -35;
+            degY = 45;
+            changeDeg(degX, degY);
+            for (var i = 0; i < sites.length; i++) {
+                var site = sites[i];
+                site.classList.remove('active', 'finish');
+            }
+            setTimeout(() => {
+                cb && cb();
+            }, 9100);
+        }
+ 
+        function changeDeg(degX, degY) {
+            cube.style.transform = `rotateX(${degX}deg) rotateY(${degY}deg)`;
+        }
+ 
+        reset.onclick = function() {
+            doReset(() => {
+                init();
+            });
+        };
+        left.onclick = function() {
+            degY -= 5;
+            changeDeg(degX, degY);
+        };
+        right.onclick = function() {
+            degY += 5;
+            changeDeg(degX, degY);
+        };
+        up.onclick = function() {
+            degX -= 5;
+            changeDeg(degX, degY);
+        };
+        down.onclick = function() {
+            degX += 5;
+            changeDeg(degX, degY);
+        };
+ 
+ 
+        function init() {
+            start();
+            setTimeout(() => {
+                finish();
+            }, 9100)
+        }
+ 
+        setTimeout(() => {
+            init();
+        }, 1000);
+    </script>
 </body>
-
+ 
 </html>
